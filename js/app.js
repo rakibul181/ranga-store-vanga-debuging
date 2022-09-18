@@ -9,18 +9,21 @@ const loadProducts = (url) => {
       });
 };
 
-loadProducts('https://fakestoreapi.com/products');
+const product = loadProducts('https://fakestoreapi.com/products');
+
+
 
 // show all product in UI
 const showProducts = (products) => {
+   console.log(products)
    
    setInnerText('total_products', products.length);
 
    document.getElementById("all-products").innerHTML = "";
 
-   const allProducts = products.slice(0, 10).map((pd) => pd);
+   const allProducts = products.slice(0, 20).map((pd) => pd);
    for (const product of allProducts) {
-      const image = product.images;
+      const image = product.image;
       const div = document.createElement('div');
       div.classList.add('product');
       div.innerHTML = `<div class="single-product">
